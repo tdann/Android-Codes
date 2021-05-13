@@ -3,6 +3,7 @@ package com.example.tdxmlcolorswap;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,6 +31,13 @@ public class XMLColorSwap extends AppCompatActivity {
             float blue= rand.nextFloat();
             textview.setText("r"+String.valueOf(red)+"   g"+String.valueOf(green+" b"+String.valueOf(blue)  ));
             textview.setTextColor(Color.rgb(red,green,blue));
+            String message= "BroadcastMessage";
+            Intent intent= new Intent();
+            intent.setAction("must.codes.td.java");
+            intent.putExtra("message",message);
+            intent.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+            sendBroadcast(intent);
+
         });
     }
 }
