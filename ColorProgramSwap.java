@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -52,4 +53,15 @@ public class ColorProgramSwap extends Activity {
         setContentView(layout);
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+    public void loadBroadcastReceiver(){
+        IntentFilter intentFilter= new IntentFilter("must.codes.td.java");
+        MyBroadCastReceiver mybroad = new MyBroadCastReceiver();
+        registerReceiver(mybroad,intentFilter);
+
+    }
+
 }
